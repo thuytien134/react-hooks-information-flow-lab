@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import Item from "./Item";
+import Filter from "./Filter";
 
 function ShoppingList({ items }) {
   const [selectedCategory, setSelectedCategory] = useState("All");
+
+  // const [ChildrenSelection,setChildrenSelection ] = useState("All")
 
   function handleCategoryChange(event) {
     setSelectedCategory(event.target.value);
@@ -23,11 +26,12 @@ function ShoppingList({ items }) {
           <option value="Dairy">Dairy</option>
           <option value="Dessert">Dessert</option>
         </select>
+        {/* <Filter onCategoryChange={handleCategoryChange} category={ChildrenSelection}/> */}
       </div>
       <ul className="Items">
         {itemsToDisplay.map((item) => (
           <Item key={item.id} name={item.name} category={item.category} />
-        ))}
+          ))}
       </ul>
     </div>
   );
